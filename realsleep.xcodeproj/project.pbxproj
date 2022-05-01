@@ -1,0 +1,673 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		225E5CB3281EEE9E007C0A9D /* realsleepApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225E5CB2281EEE9E007C0A9D /* realsleepApp.swift */; };
+		225E5CB5281EEE9E007C0A9D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225E5CB4281EEE9E007C0A9D /* ContentView.swift */; };
+		225E5CB7281EEEA0007C0A9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 225E5CB6281EEEA0007C0A9D /* Assets.xcassets */; };
+		225E5CBA281EEEA0007C0A9D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 225E5CB9281EEEA0007C0A9D /* Preview Assets.xcassets */; };
+		225E5CBE281EEEA0007C0A9D /* realsleep WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 225E5CBD281EEEA0007C0A9D /* realsleep WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		225E5CC3281EEEA1007C0A9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 225E5CC2281EEEA1007C0A9D /* Assets.xcassets */; };
+		225E5CC9281EEEA1007C0A9D /* realsleep WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 225E5CC8281EEEA1007C0A9D /* realsleep WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		225E5CCE281EEEA1007C0A9D /* realsleepApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225E5CCD281EEEA1007C0A9D /* realsleepApp.swift */; };
+		225E5CD0281EEEA1007C0A9D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225E5CCF281EEEA1007C0A9D /* ContentView.swift */; };
+		225E5CD2281EEEA1007C0A9D /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225E5CD1281EEEA1007C0A9D /* NotificationController.swift */; };
+		225E5CD4281EEEA1007C0A9D /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225E5CD3281EEEA1007C0A9D /* NotificationView.swift */; };
+		225E5CD6281EEEA1007C0A9D /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225E5CD5281EEEA1007C0A9D /* ComplicationController.swift */; };
+		225E5CD8281EEEA2007C0A9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 225E5CD7281EEEA2007C0A9D /* Assets.xcassets */; };
+		225E5CDB281EEEA2007C0A9D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 225E5CDA281EEEA2007C0A9D /* Preview Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		225E5CBF281EEEA0007C0A9D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 225E5CA7281EEE9E007C0A9D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 225E5CBC281EEEA0007C0A9D;
+			remoteInfo = "realsleep WatchKit App";
+		};
+		225E5CCA281EEEA1007C0A9D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 225E5CA7281EEE9E007C0A9D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 225E5CC7281EEEA1007C0A9D;
+			remoteInfo = "realsleep WatchKit Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		225E5CE3281EEEA2007C0A9D /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				225E5CC9281EEEA1007C0A9D /* realsleep WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		225E5CE7281EEEA2007C0A9D /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				225E5CBE281EEEA0007C0A9D /* realsleep WatchKit App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		225E5CAF281EEE9E007C0A9D /* realsleep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = realsleep.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		225E5CB2281EEE9E007C0A9D /* realsleepApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = realsleepApp.swift; sourceTree = "<group>"; };
+		225E5CB4281EEE9E007C0A9D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		225E5CB6281EEEA0007C0A9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		225E5CB9281EEEA0007C0A9D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		225E5CBD281EEEA0007C0A9D /* realsleep WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "realsleep WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		225E5CC2281EEEA1007C0A9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		225E5CC8281EEEA1007C0A9D /* realsleep WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "realsleep WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		225E5CCD281EEEA1007C0A9D /* realsleepApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = realsleepApp.swift; sourceTree = "<group>"; };
+		225E5CCF281EEEA1007C0A9D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		225E5CD1281EEEA1007C0A9D /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		225E5CD3281EEEA1007C0A9D /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		225E5CD5281EEEA1007C0A9D /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		225E5CD7281EEEA2007C0A9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		225E5CDA281EEEA2007C0A9D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		225E5CDC281EEEA2007C0A9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		225E5CDD281EEEA2007C0A9D /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		225E5CAC281EEE9E007C0A9D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		225E5CC5281EEEA1007C0A9D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		225E5CA6281EEE9E007C0A9D = {
+			isa = PBXGroup;
+			children = (
+				225E5CB1281EEE9E007C0A9D /* realsleep */,
+				225E5CC1281EEEA0007C0A9D /* realsleep WatchKit App */,
+				225E5CCC281EEEA1007C0A9D /* realsleep WatchKit Extension */,
+				225E5CB0281EEE9E007C0A9D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		225E5CB0281EEE9E007C0A9D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				225E5CAF281EEE9E007C0A9D /* realsleep.app */,
+				225E5CBD281EEEA0007C0A9D /* realsleep WatchKit App.app */,
+				225E5CC8281EEEA1007C0A9D /* realsleep WatchKit Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		225E5CB1281EEE9E007C0A9D /* realsleep */ = {
+			isa = PBXGroup;
+			children = (
+				225E5CB2281EEE9E007C0A9D /* realsleepApp.swift */,
+				225E5CB4281EEE9E007C0A9D /* ContentView.swift */,
+				225E5CB6281EEEA0007C0A9D /* Assets.xcassets */,
+				225E5CB8281EEEA0007C0A9D /* Preview Content */,
+			);
+			path = realsleep;
+			sourceTree = "<group>";
+		};
+		225E5CB8281EEEA0007C0A9D /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				225E5CB9281EEEA0007C0A9D /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		225E5CC1281EEEA0007C0A9D /* realsleep WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				225E5CC2281EEEA1007C0A9D /* Assets.xcassets */,
+			);
+			path = "realsleep WatchKit App";
+			sourceTree = "<group>";
+		};
+		225E5CCC281EEEA1007C0A9D /* realsleep WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				225E5CCD281EEEA1007C0A9D /* realsleepApp.swift */,
+				225E5CCF281EEEA1007C0A9D /* ContentView.swift */,
+				225E5CD1281EEEA1007C0A9D /* NotificationController.swift */,
+				225E5CD3281EEEA1007C0A9D /* NotificationView.swift */,
+				225E5CD5281EEEA1007C0A9D /* ComplicationController.swift */,
+				225E5CD7281EEEA2007C0A9D /* Assets.xcassets */,
+				225E5CDC281EEEA2007C0A9D /* Info.plist */,
+				225E5CDD281EEEA2007C0A9D /* PushNotificationPayload.apns */,
+				225E5CD9281EEEA2007C0A9D /* Preview Content */,
+			);
+			path = "realsleep WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		225E5CD9281EEEA2007C0A9D /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				225E5CDA281EEEA2007C0A9D /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		225E5CAE281EEE9E007C0A9D /* realsleep */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 225E5CE8281EEEA2007C0A9D /* Build configuration list for PBXNativeTarget "realsleep" */;
+			buildPhases = (
+				225E5CAB281EEE9E007C0A9D /* Sources */,
+				225E5CAC281EEE9E007C0A9D /* Frameworks */,
+				225E5CAD281EEE9E007C0A9D /* Resources */,
+				225E5CE7281EEEA2007C0A9D /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				225E5CC0281EEEA0007C0A9D /* PBXTargetDependency */,
+			);
+			name = realsleep;
+			productName = realsleep;
+			productReference = 225E5CAF281EEE9E007C0A9D /* realsleep.app */;
+			productType = "com.apple.product-type.application";
+		};
+		225E5CBC281EEEA0007C0A9D /* realsleep WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 225E5CE4281EEEA2007C0A9D /* Build configuration list for PBXNativeTarget "realsleep WatchKit App" */;
+			buildPhases = (
+				225E5CBB281EEEA0007C0A9D /* Resources */,
+				225E5CE3281EEEA2007C0A9D /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				225E5CCB281EEEA1007C0A9D /* PBXTargetDependency */,
+			);
+			name = "realsleep WatchKit App";
+			productName = "realsleep WatchKit App";
+			productReference = 225E5CBD281EEEA0007C0A9D /* realsleep WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		225E5CC7281EEEA1007C0A9D /* realsleep WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 225E5CE0281EEEA2007C0A9D /* Build configuration list for PBXNativeTarget "realsleep WatchKit Extension" */;
+			buildPhases = (
+				225E5CC4281EEEA1007C0A9D /* Sources */,
+				225E5CC5281EEEA1007C0A9D /* Frameworks */,
+				225E5CC6281EEEA1007C0A9D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "realsleep WatchKit Extension";
+			productName = "realsleep WatchKit Extension";
+			productReference = 225E5CC8281EEEA1007C0A9D /* realsleep WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		225E5CA7281EEE9E007C0A9D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1330;
+				LastUpgradeCheck = 1330;
+				TargetAttributes = {
+					225E5CAE281EEE9E007C0A9D = {
+						CreatedOnToolsVersion = 13.3.1;
+					};
+					225E5CBC281EEEA0007C0A9D = {
+						CreatedOnToolsVersion = 13.3.1;
+					};
+					225E5CC7281EEEA1007C0A9D = {
+						CreatedOnToolsVersion = 13.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 225E5CAA281EEE9E007C0A9D /* Build configuration list for PBXProject "realsleep" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 225E5CA6281EEE9E007C0A9D;
+			productRefGroup = 225E5CB0281EEE9E007C0A9D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				225E5CAE281EEE9E007C0A9D /* realsleep */,
+				225E5CBC281EEEA0007C0A9D /* realsleep WatchKit App */,
+				225E5CC7281EEEA1007C0A9D /* realsleep WatchKit Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		225E5CAD281EEE9E007C0A9D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				225E5CBA281EEEA0007C0A9D /* Preview Assets.xcassets in Resources */,
+				225E5CB7281EEEA0007C0A9D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		225E5CBB281EEEA0007C0A9D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				225E5CC3281EEEA1007C0A9D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		225E5CC6281EEEA1007C0A9D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				225E5CDB281EEEA2007C0A9D /* Preview Assets.xcassets in Resources */,
+				225E5CD8281EEEA2007C0A9D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		225E5CAB281EEE9E007C0A9D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				225E5CB5281EEE9E007C0A9D /* ContentView.swift in Sources */,
+				225E5CB3281EEE9E007C0A9D /* realsleepApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		225E5CC4281EEEA1007C0A9D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				225E5CD2281EEEA1007C0A9D /* NotificationController.swift in Sources */,
+				225E5CD0281EEEA1007C0A9D /* ContentView.swift in Sources */,
+				225E5CD6281EEEA1007C0A9D /* ComplicationController.swift in Sources */,
+				225E5CCE281EEEA1007C0A9D /* realsleepApp.swift in Sources */,
+				225E5CD4281EEEA1007C0A9D /* NotificationView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		225E5CC0281EEEA0007C0A9D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 225E5CBC281EEEA0007C0A9D /* realsleep WatchKit App */;
+			targetProxy = 225E5CBF281EEEA0007C0A9D /* PBXContainerItemProxy */;
+		};
+		225E5CCB281EEEA1007C0A9D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 225E5CC7281EEEA1007C0A9D /* realsleep WatchKit Extension */;
+			targetProxy = 225E5CCA281EEEA1007C0A9D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		225E5CDE281EEEA2007C0A9D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		225E5CDF281EEEA2007C0A9D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		225E5CE1281EEEA2007C0A9D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"realsleep WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = SAZVPX4CAA;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "realsleep WatchKit Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "realsleep WatchKit Extension";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ar.realsleep.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+			};
+			name = Debug;
+		};
+		225E5CE2281EEEA2007C0A9D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"realsleep WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = SAZVPX4CAA;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "realsleep WatchKit Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "realsleep WatchKit Extension";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ar.realsleep.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+			};
+			name = Release;
+		};
+		225E5CE5281EEEA2007C0A9D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SAZVPX4CAA;
+				GENERATE_INFOPLIST_FILE = YES;
+				IBSC_MODULE = realsleep_WatchKit_Extension;
+				INFOPLIST_KEY_CFBundleDisplayName = "realsleep WatchKit App";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = ar.realsleep;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ar.realsleep.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+			};
+			name = Debug;
+		};
+		225E5CE6281EEEA2007C0A9D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SAZVPX4CAA;
+				GENERATE_INFOPLIST_FILE = YES;
+				IBSC_MODULE = realsleep_WatchKit_Extension;
+				INFOPLIST_KEY_CFBundleDisplayName = "realsleep WatchKit App";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = ar.realsleep;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ar.realsleep.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+			};
+			name = Release;
+		};
+		225E5CE9281EEEA2007C0A9D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"realsleep/Preview Content\"";
+				DEVELOPMENT_TEAM = SAZVPX4CAA;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ar.realsleep;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		225E5CEA281EEEA2007C0A9D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"realsleep/Preview Content\"";
+				DEVELOPMENT_TEAM = SAZVPX4CAA;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ar.realsleep;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		225E5CAA281EEE9E007C0A9D /* Build configuration list for PBXProject "realsleep" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				225E5CDE281EEEA2007C0A9D /* Debug */,
+				225E5CDF281EEEA2007C0A9D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		225E5CE0281EEEA2007C0A9D /* Build configuration list for PBXNativeTarget "realsleep WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				225E5CE1281EEEA2007C0A9D /* Debug */,
+				225E5CE2281EEEA2007C0A9D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		225E5CE4281EEEA2007C0A9D /* Build configuration list for PBXNativeTarget "realsleep WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				225E5CE5281EEEA2007C0A9D /* Debug */,
+				225E5CE6281EEEA2007C0A9D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		225E5CE8281EEEA2007C0A9D /* Build configuration list for PBXNativeTarget "realsleep" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				225E5CE9281EEEA2007C0A9D /* Debug */,
+				225E5CEA281EEEA2007C0A9D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 225E5CA7281EEE9E007C0A9D /* Project object */;
+}
