@@ -10,12 +10,15 @@
 		224524E62829721E00F751B1 /* HKObserve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224524E52829721E00F751B1 /* HKObserve.swift */; };
 		224524E82829792400F751B1 /* NotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224524E72829792400F751B1 /* NotificationHandler.swift */; };
 		224524EA2829876100F751B1 /* RefreshHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224524E92829876100F751B1 /* RefreshHandler.swift */; };
-		224524EF282B16B500F751B1 /* ViewZero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224524EE282B16B500F751B1 /* ViewZero.swift */; };
-		224524F1282B16EF00F751B1 /* ViewOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224524F0282B16EF00F751B1 /* ViewOne.swift */; };
-		224524F3282B16FC00F751B1 /* ViewTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224524F2282B16FC00F751B1 /* ViewTwo.swift */; };
 		224524F8282C1C9100F751B1 /* NavItemObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224524F7282C1C9100F751B1 /* NavItemObject.swift */; };
 		224524FA282C1FFC00F751B1 /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224524F9282C1FFC00F751B1 /* Layout.swift */; };
-		2252014D28230798008485A5 /* Activity.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2252014B28230798008485A5 /* Activity.xcdatamodeld */; };
+		22452501282C517F00F751B1 /* Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22452500282C517F00F751B1 /* Core.swift */; };
+		22452503282C543200F751B1 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22452502282C543200F751B1 /* HealthKitManager.swift */; };
+		22452505282FE24200F751B1 /* SensorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22452504282FE24200F751B1 /* SensorManager.swift */; };
+		2245250A28303E5900F751B1 /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2245250928303E5900F751B1 /* Debug.swift */; };
+		2245250D28303F1700F751B1 /* HealthDataObservations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2245250C28303F1700F751B1 /* HealthDataObservations.swift */; };
+		2245250F2831345800F751B1 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2245250E2831345800F751B1 /* CoreDataManager.swift */; };
+		2252014D28230798008485A5 /* core.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2252014B28230798008485A5 /* core.xcdatamodeld */; };
 		2252014F28230807008485A5 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2252014E28230807008485A5 /* DataController.swift */; };
 		2252015328230C52008485A5 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2252015228230C52008485A5 /* CoreData.swift */; };
 		225E5CB3281EEE9E007C0A9D /* realsleepApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225E5CB2281EEE9E007C0A9D /* realsleepApp.swift */; };
@@ -98,11 +101,14 @@
 		224524E52829721E00F751B1 /* HKObserve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKObserve.swift; sourceTree = "<group>"; };
 		224524E72829792400F751B1 /* NotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHandler.swift; sourceTree = "<group>"; };
 		224524E92829876100F751B1 /* RefreshHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshHandler.swift; sourceTree = "<group>"; };
-		224524EE282B16B500F751B1 /* ViewZero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewZero.swift; sourceTree = "<group>"; };
-		224524F0282B16EF00F751B1 /* ViewOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewOne.swift; sourceTree = "<group>"; };
-		224524F2282B16FC00F751B1 /* ViewTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTwo.swift; sourceTree = "<group>"; };
 		224524F7282C1C9100F751B1 /* NavItemObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavItemObject.swift; sourceTree = "<group>"; };
 		224524F9282C1FFC00F751B1 /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
+		22452500282C517F00F751B1 /* Core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Core.swift; sourceTree = "<group>"; };
+		22452502282C543200F751B1 /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
+		22452504282FE24200F751B1 /* SensorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorManager.swift; sourceTree = "<group>"; };
+		2245250928303E5900F751B1 /* Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
+		2245250C28303F1700F751B1 /* HealthDataObservations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthDataObservations.swift; sourceTree = "<group>"; };
+		2245250E2831345800F751B1 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		2252014C28230798008485A5 /* Activity.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Activity.xcdatamodel; sourceTree = "<group>"; };
 		2252014E28230807008485A5 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		2252015228230C52008485A5 /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
@@ -169,6 +175,10 @@
 			children = (
 				224524E92829876100F751B1 /* RefreshHandler.swift */,
 				224524E72829792400F751B1 /* NotificationHandler.swift */,
+				22452500282C517F00F751B1 /* Core.swift */,
+				22452502282C543200F751B1 /* HealthKitManager.swift */,
+				22452504282FE24200F751B1 /* SensorManager.swift */,
+				2245250E2831345800F751B1 /* CoreDataManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -204,17 +214,6 @@
 			path = TopNav;
 			sourceTree = "<group>";
 		};
-		224524F6282B197A00F751B1 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				224524EE282B16B500F751B1 /* ViewZero.swift */,
-				224524F0282B16EF00F751B1 /* ViewOne.swift */,
-				224524F2282B16FC00F751B1 /* ViewTwo.swift */,
-				225E5CB4281EEE9E007C0A9D /* Main.swift */,
-			);
-			path = Main;
-			sourceTree = "<group>";
-		};
 		224524FB282C265700F751B1 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,10 +239,21 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		2245250B28303EFC00F751B1 /* Learn */ = {
+			isa = PBXGroup;
+			children = (
+				224524E52829721E00F751B1 /* HKObserve.swift */,
+				22F5D97F282503C0001836A7 /* InnerShadow.swift */,
+				2252015228230C52008485A5 /* CoreData.swift */,
+				22C014AB28213D5B0094EDAA /* LearnView.swift */,
+			);
+			path = Learn;
+			sourceTree = "<group>";
+		};
 		2252014A2823077E008485A5 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
-				2252014B28230798008485A5 /* Activity.xcdatamodeld */,
+				2252014B28230798008485A5 /* core.xcdatamodeld */,
 				2252014E28230807008485A5 /* DataController.swift */,
 			);
 			path = Objects;
@@ -273,11 +283,11 @@
 		225E5CB1281EEE9E007C0A9D /* realsleep */ = {
 			isa = PBXGroup;
 			children = (
-				224524F6282B197A00F751B1 /* Main */,
+				225E5CB4281EEE9E007C0A9D /* Main.swift */,
 				224524F4282B173400F751B1 /* Home */,
 				22C014B128213DA50094EDAA /* Info.plist */,
 				22C014AD28213D9C0094EDAA /* realsleep.entitlements */,
-				22C014AA28213D320094EDAA /* Learn */,
+				22C014AA28213D320094EDAA /* Debug */,
 				225E5CF4281F1FCB007C0A9D /* Shared */,
 				225E5CF1281F1B1D007C0A9D /* History */,
 				225E5CEE281F1AFD007C0A9D /* Settings */,
@@ -367,15 +377,14 @@
 			path = Shared;
 			sourceTree = "<group>";
 		};
-		22C014AA28213D320094EDAA /* Learn */ = {
+		22C014AA28213D320094EDAA /* Debug */ = {
 			isa = PBXGroup;
 			children = (
-				22C014AB28213D5B0094EDAA /* LearnView.swift */,
-				2252015228230C52008485A5 /* CoreData.swift */,
-				22F5D97F282503C0001836A7 /* InnerShadow.swift */,
-				224524E52829721E00F751B1 /* HKObserve.swift */,
+				2245250B28303EFC00F751B1 /* Learn */,
+				2245250928303E5900F751B1 /* Debug.swift */,
+				2245250C28303F1700F751B1 /* HealthDataObservations.swift */,
 			);
-			path = Learn;
+			path = Debug;
 			sourceTree = "<group>";
 		};
 		22C014AE28213D9C0094EDAA /* Frameworks */ = {
@@ -517,34 +526,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2245250A28303E5900F751B1 /* Debug.swift in Sources */,
 				225E5CB5281EEE9E007C0A9D /* Main.swift in Sources */,
+				22452501282C517F00F751B1 /* Core.swift in Sources */,
 				224524F8282C1C9100F751B1 /* NavItemObject.swift in Sources */,
 				224524E82829792400F751B1 /* NotificationHandler.swift in Sources */,
 				225E5CED281F1AF9007C0A9D /* Home.swift in Sources */,
-				224524F1282B16EF00F751B1 /* ViewOne.swift in Sources */,
 				225E5CF0281F1B0B007C0A9D /* Settings.swift in Sources */,
-				224524EF282B16B500F751B1 /* ViewZero.swift in Sources */,
 				225E5CF8281F2139007C0A9D /* TopNavItem.swift in Sources */,
 				2252015328230C52008485A5 /* CoreData.swift in Sources */,
 				225E5CF6281F1FDB007C0A9D /* TopNav.swift in Sources */,
 				22F5D98828251000001836A7 /* Heading.swift in Sources */,
+				2245250D28303F1700F751B1 /* HealthDataObservations.swift in Sources */,
 				22F5D98628250F6C001836A7 /* FontStyles.swift in Sources */,
 				22C014BA2822BCC40094EDAA /* SideBarLayout.swift in Sources */,
 				22F5D98A282515FD001836A7 /* NavButton.swift in Sources */,
-				224524F3282B16FC00F751B1 /* ViewTwo.swift in Sources */,
+				22452505282FE24200F751B1 /* SensorManager.swift in Sources */,
 				22F5D97E282500F6001836A7 /* NeoSwitcher.swift in Sources */,
 				224524E62829721E00F751B1 /* HKObserve.swift in Sources */,
 				224524FA282C1FFC00F751B1 /* Layout.swift in Sources */,
 				22C014BC2822BD4B0094EDAA /* SideNav.swift in Sources */,
 				225E5CB3281EEE9E007C0A9D /* realsleepApp.swift in Sources */,
+				2245250F2831345800F751B1 /* CoreDataManager.swift in Sources */,
 				225E5CF3281F1B29007C0A9D /* History.swift in Sources */,
 				22F5D97C282440C0001836A7 /* NeoMorphicButton.swift in Sources */,
 				22F5D980282503C0001836A7 /* InnerShadow.swift in Sources */,
 				22F5D98428250D31001836A7 /* MusicBar.swift in Sources */,
 				22C014AC28213D5B0094EDAA /* LearnView.swift in Sources */,
-				2252014D28230798008485A5 /* Activity.xcdatamodeld in Sources */,
+				2252014D28230798008485A5 /* core.xcdatamodeld in Sources */,
 				224524EA2829876100F751B1 /* RefreshHandler.swift in Sources */,
 				2252014F28230807008485A5 /* DataController.swift in Sources */,
+				22452503282C543200F751B1 /* HealthKitManager.swift in Sources */,
 				22C014B82822BBED0094EDAA /* TopBarLayout.swift in Sources */,
 				22F5D98228250CA5001836A7 /* Color.swift in Sources */,
 			);
@@ -922,13 +934,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		2252014B28230798008485A5 /* Activity.xcdatamodeld */ = {
+		2252014B28230798008485A5 /* core.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				2252014C28230798008485A5 /* Activity.xcdatamodel */,
 			);
 			currentVersion = 2252014C28230798008485A5 /* Activity.xcdatamodel */;
-			path = Activity.xcdatamodeld;
+			path = core.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

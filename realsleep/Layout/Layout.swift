@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Layout<T1: View, T2: View, T3: View>: View {
-    @State var layout = NavType.TOP
+    @State var layout: NavType
     var navItems: [NavItemObject]
     var ViewZero: T1
     var ViewOne: T2

@@ -11,7 +11,7 @@ import SwiftUI
 class TopBarListeners: ObservableObject {
     static let topBarListener = TopBarListeners()
     @Published var isHideTopBar: Bool = false
-    @Published var navType: NavType = NavType.LEFT
+    @Published var navType: NavType = NavType.TOP
 }
 
 struct Settings: View {

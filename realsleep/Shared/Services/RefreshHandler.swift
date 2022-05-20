@@ -10,11 +10,20 @@ import BackgroundTasks
 
 struct RefreshHandler {
     var notifier = Notifier()
+    private var core = Core()
     func handleAppRefresh(task: BGAppRefreshTask){
         scheduleAppRefresh()
+        let isUserAsleep = core.checkWhetherUserAsleep()
+        if(isUserAsleep){
+            notifier.triggerDebugNotification(message: "User is asleep. Stopping the play")
+            //todo - stop the play
+        }
+        else{
+            notifier.triggerDebugNotification(message: "User is not asleep. Continuing the play")
+        }
         notifier.triggerDebugNotification(message: "App refreshed")
-        
         task.expirationHandler = {
+            notifier.triggerDebugNotification(message: "App refresh expired")
             // After all operations are cancelled, the completion block below is called to set the task to complete.
            
         }

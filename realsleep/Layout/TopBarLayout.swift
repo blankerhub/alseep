@@ -48,12 +48,12 @@ struct TopBarLayout<T1: View, T2: View, T3: View>: View {
                 
                 .gesture(
                     (self.activeView == ViewType.VIEWONE) ?
+                    
+                    DragGesture().onChanged { value in
                         
-                        DragGesture().onChanged { value in
-                            
-                            self.viewState = value.translation
-                            self.centerState = value.translation
-                        }
+                        self.viewState = value.translation
+                        self.centerState = value.translation
+                    }
                         .onEnded { value in
                             if value.predictedEndTranslation.width > screenWidth / 2 {
                                 centerTransitionStateWidth = screenWidth
@@ -73,23 +73,23 @@ struct TopBarLayout<T1: View, T2: View, T3: View>: View {
                             }
                             
                         }
-                        : DragGesture().onChanged { value in
-                            switch self.activeView {
-                            case .VIEWZERO:
-                                guard value.translation.width < 1 else { return }
-                                self.viewState = value.translation
-                                self.centerTransitionStateWidth = value.translation.width + screenWidth
-                            case .VIEWTWO:
-                                guard value.translation.width > 1 else { return }
-                                self.viewState = value.translation
-                                self.centerTransitionStateWidth = value.translation.width - screenWidth
-                            case.VIEWONE:
-                                self.viewState = value.translation
-                                
-                            }
+                    : DragGesture().onChanged { value in
+                        switch self.activeView {
+                        case .VIEWZERO:
+                            guard value.translation.width < 1 else { return }
+                            self.viewState = value.translation
+                            self.centerTransitionStateWidth = value.translation.width + screenWidth
+                        case .VIEWTWO:
+                            guard value.translation.width > 1 else { return }
+                            self.viewState = value.translation
+                            self.centerTransitionStateWidth = value.translation.width - screenWidth
+                        case.VIEWONE:
+                            self.viewState = value.translation
                             
                         }
                         
+                    }
+                    
                         .onEnded { value in
                             switch self.activeView {
                             case .VIEWZERO:
@@ -100,6 +100,7 @@ struct TopBarLayout<T1: View, T2: View, T3: View>: View {
                                 }
                                 else {
                                     self.viewState = .zero
+                                    self.centerTransitionStateWidth = screenWidth;
                                 }
                             case .VIEWTWO:
                                 if value.predictedEndTranslation.width > screenWidth / 2 {
@@ -109,6 +110,7 @@ struct TopBarLayout<T1: View, T2: View, T3: View>: View {
                                 }
                                 else {
                                     self.viewState = .zero
+                                    self.centerTransitionStateWidth = -screenWidth;
                                 }
                             case .VIEWONE:
                                 self.viewState = .zero
@@ -144,6 +146,6 @@ struct TopBarLayout<T1: View, T2: View, T3: View>: View {
 
 struct MainWithTopBar_Previews: PreviewProvider {
     static var previews: some View {
-        TopBarLayout(ViewZero: Text("View zero"), ViewOne: Text("View one"), ViewTwo: Text("View two"), navItems: [])
+        TopBarLayout(ViewZero: Text("View zero"), ViewOne: Text("View one"), ViewTwo: Text("View two"), navItems: [ NavItemObject(label: "Home", iconPath: "home-nav-light"),NavItemObject(label: "Settings", iconPath: "setting-nav-light"),NavItemObject(label: "History", iconPath: "")])
     }
 }

@@ -10,6 +10,7 @@ import BackgroundTasks
 
 struct Home: View {
     private var notifier = Notifier()
+    private var core = Core.shared;
     @StateObject var debugListeners = DebugListeners.debugListeners
     @FetchRequest(sortDescriptors: []) var activities: FetchedResults<Activity>
     @Environment(\.managedObjectContext) var moc
@@ -18,7 +19,7 @@ struct Home: View {
     @State var countUpTime = 0
     @State var debugLog = ""
     @State var timer: Timer?
-
+    var refreshHandler = RefreshHandler()
     var body: some View {
         GeometryReader { bounds in
             VStack {
@@ -60,15 +61,7 @@ struct Home: View {
         .background(Color.neuBackground)
         .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
         .onAppear(perform: start)
-        .onChange(of: scenePhase) { newPhase in
-                        if newPhase == .active {
-                           print("active")
-                        } else if newPhase == .inactive {
-                            print("Inactive")
-                        } else if newPhase == .background {
-                            self.executeBackgroundTasks()
-                        }
-                    }
+        
     }
     func start(){
         debugLog = "page initiated"
@@ -82,17 +75,9 @@ struct Home: View {
     }
     
     
-    func executeBackgroundTasks(){
-        notifier.triggerDebugNotification(message: "App entered background")
-        RefreshHandler().scheduleAppRefresh()
-        startTimer()
-    }
-    
     func onPowerButtonClicked(){
         isButtonOn.toggle()
         //debugLog += "\n" + "sleep timer is turned \(isButtonOn ? "on" : "off")"
-        
-        
         if isButtonOn {
             //startTimer()
         }
