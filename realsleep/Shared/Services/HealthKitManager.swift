@@ -37,7 +37,7 @@ struct HealthKitManager {
             fatalError("*** This method should never fail ***")
         }
         let today = Date()
-        let startDate = startTimeStamp ?? Calendar.current.date(byAdding: .day, value: -2, to: today)
+        let startDate = startTimeStamp ?? Calendar.current.date(byAdding: .hour, value: -2, to: today)
         let predicate = HKQuery.predicateForSamples(withStart: startDate, end: today, options: HKQueryOptions.strictEndDate)
             
         let sorting = NSSortDescriptor(key: "startDate", ascending: false)

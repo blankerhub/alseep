@@ -34,13 +34,12 @@ struct Main: View {
     @Environment(\.managedObjectContext) var moc
     private var refreshHandler = RefreshHandler()
     private var notifier = Notifier()
-    private var core = Core()
+    private var core = Core.shared
     private var navItems = [ NavItemObject(label: "Home", iconPath: "home-nav-light"),
                              NavItemObject(label: "Settings", iconPath: "setting-nav-light"),
                              NavItemObject(label: "Debug", iconPath: "")]
     init(){
         registerBgTasks()
-        self.core.context = moc;
     }
     var body: some View {
         Layout(layout: topBarListener.navType, navItems: navItems, ViewZero: Home(), ViewOne: Settings(), ViewTwo: Debug()).onChange(of: topBarListener.navType){newValue in
@@ -51,7 +50,7 @@ struct Main: View {
             } else if newPhase == .inactive {
                 print("Inactive")
             } else if newPhase == .background {
-                self.executeBackgroundTasks()	
+                self.executeBackgroundTasks()
             }
         }
     }
@@ -64,7 +63,7 @@ struct Main: View {
         
         let isRefreshTaskScheduleSuccess = BGTaskScheduler.shared.register(forTaskWithIdentifier: "com.asleeptimer.bgtasks.refresh", using: nil) { task in
             // Downcast the parameter to an app refresh task as this identifier is used for a refresh request.
-            RefreshHandler().handleAppRefresh(task: task as! BGAppRefreshTask)
+            RefreshHandler().handleAppRefresh(context: moc, task: task as! BGAppRefreshTask)
         }
         //triggerDebugNotification(message: "bg task registration \(isRefreshTaskScheduleSuccess)")
     }

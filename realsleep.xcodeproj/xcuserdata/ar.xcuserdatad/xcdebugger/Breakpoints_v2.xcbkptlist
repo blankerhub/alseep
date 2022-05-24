@@ -14,9 +14,9 @@
             filePath = "realsleep/Shared/Services/CoreDataManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "insertIntoActiveEnergy(results:)"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "insert(context:objectType:results:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

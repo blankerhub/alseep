@@ -7,13 +7,14 @@
 
 import Foundation
 import BackgroundTasks
+import CoreData
 
 struct RefreshHandler {
     var notifier = Notifier()
     private var core = Core()
-    func handleAppRefresh(task: BGAppRefreshTask){
+    func handleAppRefresh(context: NSManagedObjectContext, task: BGAppRefreshTask){
         scheduleAppRefresh()
-        let isUserAsleep = core.checkWhetherUserAsleep()
+        let isUserAsleep = core.checkWhetherUserAsleep(context: context)
         if(isUserAsleep){
             notifier.triggerDebugNotification(message: "User is asleep. Stopping the play")
             //todo - stop the play

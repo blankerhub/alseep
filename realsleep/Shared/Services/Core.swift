@@ -11,126 +11,79 @@ import SwiftUI
 import HealthKit
 
 struct Core {
-    static let shared = Core()
+    static var shared = Core()
     @FetchRequest(sortDescriptors: [SortDescriptor(\.timestamp, order: .reverse)]) var activities: FetchedResults<Activity>
     private var healthDataManager = HealthKitManager.shared
     private var coreDataManager = CoreDataManager.shared
     private var sensorManager = SensorManager.shared
-    var context: NSManagedObjectContext {
-        didSet{
-            print("context value is set in core \(context.name)")
-            self.coreDataManager.context = context
-        }
-    }
-    init(){
-        context = NSManagedObjectContext()
-    }
     
-    func recordActivity(activity: String){
-        let dummyActivity = Activity(context: context);
-        dummyActivity.details = activity;
-        dummyActivity.timestamp = Date()
-        do{
-            try context.save();
-        }
-        catch{
-            print(error)
-        }
-    }
-    func checkWhetherUserAsleep() -> Bool{
-        getLastActiveTimestamp()
+    func checkWhetherUserAsleep(context: NSManagedObjectContext) -> Bool{
+        getLastActiveTimestamp(context: context)
         return false;
     }
     
-    func getLastActiveTimestamp()-> Date? {
-        //refreshActivityData();
-        
+    func getLastActiveTimestamp(context: NSManagedObjectContext)-> Date? {
+        refreshActivityData(context: context);
+        refreshAccelerometerData(context: context)
         //compare the accelerometer reading in the last time interval
         // and insert into activities if active
         
         return activities.first?.timestamp;
     }
     
-    func refreshAccelerometerData(){
+    func refreshAccelerometerData(context: NSManagedObjectContext){
         if let data = sensorManager.getCurrentAccelerometerReading() {
-            coreDataManager.saveAccelerometerData(data: data)
+            coreDataManager.saveAccelerometerData(context: context, data: data)
         }
         else{
             print("no data returned from get current accelerometer reading")
         }
     }
     
-    func refreshActivityData(){
-        // get latest steps record and save to activities
-        healthDataManager.getLatestSample(quantityType: .activeEnergyBurned){query, results, error in
-            guard let samples = results as? [HKQuantitySample] else {
-                // Handle any errors here.
-                return
-            }
-            let activeEnergy = ActiveEnergy(context: context);
-            activeEnergy.timestamp = samples.first!.startDate
-            activeEnergy.value = samples.first!.quantity.doubleValue(for: HKUnit.kilocalorie())
-            try? context.save()
-        }
-        healthDataManager.getLatestSample(quantityType: .stepCount){query, results, error in
-            guard let samples = results as? [HKQuantitySample] else {
-                // Handle any errors here.
-                return
-            }
-            print(samples.first)
+    func refreshActivityData(context: NSManagedObjectContext){
+        refreshActiveEnergyData(context: context){isCompleted in
             
         }
-        
-        //get latest active calories record and save to activities
+        refreshStepData(context: context){isCompleted in
+            
+        }
     }
-    func refreshActiveEnergyData(){
-        //deleteAllActiveEnergyRecords(context: context);
-        let fetchRequest: NSFetchRequest<ActiveEnergy>
-        fetchRequest = ActiveEnergy.fetchRequest()
-        fetchRequest.sortDescriptors = [
-            NSSortDescriptor(keyPath: \ActiveEnergy.timestamp, ascending: false)
-        ]
-        fetchRequest.fetchLimit = 1
-        if let objects = try? context.fetch(fetchRequest) {
-            if let latestRecord = objects.first {
+    func refreshActiveEnergyData(context: NSManagedObjectContext, completionHandler: @escaping (Bool) -> Void){
+        coreDataManager.getLatestRecord(context: context, objectType: .ActiveEnergy){isRecordsPresent, latestRecord in
+            if isRecordsPresent, let latestRecord = latestRecord as? ActiveEnergy {
                 healthDataManager.getSamplesSinceTimeStamp(quantityType: .activeEnergyBurned, startTimeStamp: latestRecord.timestamp){query, results, error in
-                    coreDataManager.insertIntoActiveEnergy(results: results)
+                    coreDataManager.insert(context: context, objectType: .ActiveEnergy, results: results, completionHandler: completionHandler)
                 }
             }
             else{
-                print("no records found for active energy")
                 healthDataManager.getSamplesSinceTimeStamp(quantityType: .activeEnergyBurned){query, results, error in
-                    coreDataManager.insertIntoActiveEnergy(results: results)
+                    coreDataManager.insert(context: context, objectType: .ActiveEnergy, results: results, completionHandler: completionHandler)
+                    completionHandler(true);
                 }
             }
         }
     }
+    
 
-    func deleteRecord(){
-        let fetchRequest: NSFetchRequest<Activity>
-        fetchRequest = Activity.fetchRequest()
-
-        fetchRequest.predicate = NSPredicate(format: "active = true");
-        fetchRequest.includesPropertyValues = false
-        if let objects = try? context.fetch(fetchRequest) {
-            for object in objects {
-                context.delete(object)
+    func refreshStepData(context: NSManagedObjectContext, completionHandler: @escaping (Bool) -> Void){
+        coreDataManager.getLatestRecord(context: context, objectType: .Steps){isRecordsPresent, latestRecord in
+            if isRecordsPresent, let latestRecord = latestRecord as? Steps {
+                healthDataManager.getSamplesSinceTimeStamp(quantityType: .stepCount, startTimeStamp: latestRecord.timestamp){query, results, error in
+                    coreDataManager.insert(context: context, objectType: .Steps, results: results, completionHandler:  completionHandler)
+                    completionHandler(true);
+                }
+            }
+            else{
+                healthDataManager.getSamplesSinceTimeStamp(quantityType: .stepCount){query, results, error in
+                    coreDataManager.insert(context: context, objectType: .Steps, results: results, completionHandler: completionHandler)
+                    completionHandler(true);
+                }
             }
         }
-        try? context.save()
     }
     
-    func deleteAllActiveEnergyRecords(){
-        let fetchRequest: NSFetchRequest<ActiveEnergy>
-        fetchRequest = ActiveEnergy.fetchRequest()
-        //fetchRequest.predicate = NSPredicate(format: "active = true");
-        fetchRequest.includesPropertyValues = false
-        if let objects = try? context.fetch(fetchRequest) {
-            for object in objects {
-                context.delete(object)
-            }
-        }
-        try? context.save()
+    func deleteAllActiveEnergyRecords(context: NSManagedObjectContext){
+        coreDataManager.deleteAllActiveEnergyRecords(context: context);
     }
     
 }
