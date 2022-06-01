@@ -4,7 +4,7 @@
 //
 //  Created by Ar on 5/1/22.
 //
-
+import Foundation
 import SwiftUI
 import BackgroundTasks
 
@@ -20,6 +20,7 @@ enum NavType {
     case LEFT
     case BOTTOM
 }
+
 
 class DebugListeners: ObservableObject {
     static let debugListeners = DebugListeners()
@@ -60,10 +61,9 @@ struct Main: View {
         refreshHandler.scheduleAppRefresh()
     }
     func registerBgTasks(){
-        
         let isRefreshTaskScheduleSuccess = BGTaskScheduler.shared.register(forTaskWithIdentifier: "com.asleeptimer.bgtasks.refresh", using: nil) { task in
             // Downcast the parameter to an app refresh task as this identifier is used for a refresh request.
-            RefreshHandler().handleAppRefresh(context: moc, task: task as! BGAppRefreshTask)
+            refreshHandler.handleAppRefresh(context: moc, task: task as! BGAppRefreshTask, numberOfMinutes: 20)
         }
         //triggerDebugNotification(message: "bg task registration \(isRefreshTaskScheduleSuccess)")
     }

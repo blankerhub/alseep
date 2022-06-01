@@ -12,21 +12,22 @@ import CoreData
 struct RefreshHandler {
     var notifier = Notifier()
     private var core = Core()
-    func handleAppRefresh(context: NSManagedObjectContext, task: BGAppRefreshTask){
+    func handleAppRefresh(context: NSManagedObjectContext, task: BGAppRefreshTask, numberOfMinutes: Int){
         scheduleAppRefresh()
-        let isUserAsleep = core.checkWhetherUserAsleep(context: context)
-        if(isUserAsleep){
-            notifier.triggerDebugNotification(message: "User is asleep. Stopping the play")
-            //todo - stop the play
-        }
-        else{
-            notifier.triggerDebugNotification(message: "User is not asleep. Continuing the play")
-        }
-        notifier.triggerDebugNotification(message: "App refreshed")
-        task.expirationHandler = {
-            notifier.triggerDebugNotification(message: "App refresh expired")
-            // After all operations are cancelled, the completion block below is called to set the task to complete.
-           
+        let isUserAsleep = core.checkWhetherUserAsleep(context: context, numberOfMinutes: numberOfMinutes){isUserAsleep in
+            if(isUserAsleep){
+                notifier.triggerDebugNotification(message: "User is asleep. Stopping the play")
+                //todo - stop the play
+            }
+            else{
+                notifier.triggerDebugNotification(message: "User is not asleep. Continuing the play")
+            }
+            notifier.triggerDebugNotification(message: "App refreshed")
+            task.expirationHandler = {
+                notifier.triggerDebugNotification(message: "App refresh expired")
+                // After all operations are cancelled, the completion block below is called to set the task to complete.
+               
+            }
         }
     }
     func scheduleAppRefresh(){
@@ -36,7 +37,7 @@ struct RefreshHandler {
             try BGTaskScheduler.shared.submit(request)
             notifier.triggerDebugNotification(message: "app refresh scheduled")
         } catch {
-            print("Could not schedule app refresh: \(error)")
+            notifier.triggerDebugNotification(message: "could not schedule app refresh")
         }
     }
 }

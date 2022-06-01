@@ -10,7 +10,8 @@ import SwiftUI
 struct Debug: View {
     var body: some View {
         ZStack{
-            HealthDataObservations()
+            //HealthDataObservations()
+            SensorDataViewer()
         }
     }
 }

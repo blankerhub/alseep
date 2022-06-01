@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		221CDCC8284268F500681417 /* SensorDataViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221CDCC7284268F500681417 /* SensorDataViewer.swift */; };
+		221CDCCA284419E800681417 /* LogHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221CDCC9284419E800681417 /* LogHelper.swift */; };
 		224524E62829721E00F751B1 /* HKObserve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224524E52829721E00F751B1 /* HKObserve.swift */; };
 		224524E82829792400F751B1 /* NotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224524E72829792400F751B1 /* NotificationHandler.swift */; };
 		224524EA2829876100F751B1 /* RefreshHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224524E92829876100F751B1 /* RefreshHandler.swift */; };
@@ -98,6 +100,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		221CDCC7284268F500681417 /* SensorDataViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorDataViewer.swift; sourceTree = "<group>"; };
+		221CDCC9284419E800681417 /* LogHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogHelper.swift; sourceTree = "<group>"; };
 		224524E52829721E00F751B1 /* HKObserve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKObserve.swift; sourceTree = "<group>"; };
 		224524E72829792400F751B1 /* NotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHandler.swift; sourceTree = "<group>"; };
 		224524E92829876100F751B1 /* RefreshHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshHandler.swift; sourceTree = "<group>"; };
@@ -179,6 +183,7 @@
 				22452502282C543200F751B1 /* HealthKitManager.swift */,
 				22452504282FE24200F751B1 /* SensorManager.swift */,
 				2245250E2831345800F751B1 /* CoreDataManager.swift */,
+				221CDCC9284419E800681417 /* LogHelper.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -383,6 +388,7 @@
 				2245250B28303EFC00F751B1 /* Learn */,
 				2245250928303E5900F751B1 /* Debug.swift */,
 				2245250C28303F1700F751B1 /* HealthDataObservations.swift */,
+				221CDCC7284268F500681417 /* SensorDataViewer.swift */,
 			);
 			path = Debug;
 			sourceTree = "<group>";
@@ -535,6 +541,8 @@
 				225E5CF0281F1B0B007C0A9D /* Settings.swift in Sources */,
 				225E5CF8281F2139007C0A9D /* TopNavItem.swift in Sources */,
 				2252015328230C52008485A5 /* CoreData.swift in Sources */,
+				221CDCCA284419E800681417 /* LogHelper.swift in Sources */,
+				221CDCC8284268F500681417 /* SensorDataViewer.swift in Sources */,
 				225E5CF6281F1FDB007C0A9D /* TopNav.swift in Sources */,
 				22F5D98828251000001836A7 /* Heading.swift in Sources */,
 				2245250D28303F1700F751B1 /* HealthDataObservations.swift in Sources */,

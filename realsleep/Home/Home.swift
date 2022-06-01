@@ -79,16 +79,25 @@ struct Home: View {
         isButtonOn.toggle()
         //debugLog += "\n" + "sleep timer is turned \(isButtonOn ? "on" : "off")"
         if isButtonOn {
-            //startTimer()
+            startTimer()
         }
         else{
-           //resetCountUp()
+            timer?.invalidate()
+            debugLog = "";
         }
     }
     func startTimer(){
         timer = Timer.scheduledTimer(withTimeInterval: 5, repeats: true, block: { _ in
-            countUpSleep()
-            //todo - run the above in background
+            let isUserAsleep = core.checkWhetherUserAsleep(context: moc,numberOfMinutes: 10){isUserAsleep in
+                if(isUserAsleep){
+                    debugLog += "\n" + "User is asleep - stopping the play"
+                    timer?.invalidate()
+                    self.isButtonOn = false;
+                }
+                else{
+                    debugLog += "\n" + "User is not asleep - continuing the play"
+                }
+            }
         })
     }
     func countUpSleep(){

@@ -19,7 +19,7 @@ enum ObjectType {
 
 struct CoreDataManager {
     static var shared = CoreDataManager()
-    
+    private var logHelper = LogHelper.shared;
     func getLatestRecord(context: NSManagedObjectContext, objectType: ObjectType, completionHandler: (Bool, NSManagedObject?) -> Void){
         var isRecordsPresent = false;
         var latestRecord: NSManagedObject? = nil;
@@ -58,6 +58,24 @@ struct CoreDataManager {
             else{
                 completionHandler(isRecordsPresent, latestRecord)
             }
+        case  .Activity:
+            let fetchRequest: NSFetchRequest<Activity>
+            fetchRequest = Activity.fetchRequest()
+            fetchRequest.sortDescriptors = [
+                NSSortDescriptor(keyPath: \Activity.timestamp, ascending: false)
+            ]
+            fetchRequest.fetchLimit = 1
+            if let objects = try? context.fetch(fetchRequest) {
+                if let firstRecord = objects.first {
+                    isRecordsPresent = true;
+                    latestRecord = firstRecord;
+                }
+                completionHandler(isRecordsPresent,latestRecord)
+            }
+            else{
+                completionHandler(isRecordsPresent, latestRecord)
+            }
+
         default:
             completionHandler(isRecordsPresent, latestRecord)
         }
@@ -67,32 +85,63 @@ struct CoreDataManager {
         
         guard let samples = results as? [HKQuantitySample] else {
             // Handle any errors here.
-            print("no samples found")
+            logHelper.debugLog(message: "no samples to be inserted")
             return
         }
-        print("number of samples is \(samples.count)")
-        for sample in samples {
-            let arguments = ["timestamp": sample.startDate as NSDate,"value": sample.quantity.doubleValue(for: HKUnit.kilocalorie()) as NSObject]
-            if let objects = fetchWithPredicate(context: context, entityName: "ActiveEnergy", argumentArray: arguments) {
-                for object in objects {
-                    context.delete(object)
+        logHelper.debugLog(message: "number of samples to be inserted: \(samples.count)")
+        switch(objectType){
+        case .ActiveEnergy:
+            for sample in samples {
+                let arguments = ["timestamp": sample.startDate as NSDate,"value": sample.quantity.doubleValue(for: HKUnit.kilocalorie()) as NSObject]
+                if let objects = fetchWithPredicate(context: context, entityName: "ActiveEnergy", argumentArray: arguments) {
+                    for object in objects {
+                        context.delete(object)
+                    }
+                }
+                try? context.save()
+                
+                let recordToBeInserted = ActiveEnergy(context: context)
+                recordToBeInserted.timestamp = sample.startDate
+                recordToBeInserted.value = sample.quantity.doubleValue(for: HKUnit.kilocalorie())
+                recordToBeInserted.id = UUID()
+                do{
+                    try context.save()
+                    logHelper.debugLog(message: "inserted active energy records successfully")
+                    completionHandler(true)
+                }
+                catch{
+                    print(error)
+                    completionHandler(false)
                 }
             }
-            try? context.save()
-            
-            let recordToBeInserted = ActiveEnergy(context: context)
-            recordToBeInserted.timestamp = sample.startDate
-            recordToBeInserted.value = sample.quantity.doubleValue(for: HKUnit.kilocalorie())
-            recordToBeInserted.id = UUID()
-            do{
-                try context.save()
-                completionHandler(true)
+        case .Steps:
+            for sample in samples {
+                let arguments = ["timestamp": sample.startDate as NSDate,"value": sample.quantity.doubleValue(for: HKUnit.count()) as NSObject]
+                if let objects = fetchWithPredicate(context: context, entityName: "Steps", argumentArray: arguments) {
+                    for object in objects {
+                        context.delete(object)
+                    }
+                }
+                try? context.save()
+                
+                let recordToBeInserted = ActiveEnergy(context: context)
+                recordToBeInserted.timestamp = sample.startDate
+                recordToBeInserted.value = sample.quantity.doubleValue(for: HKUnit.count())
+                recordToBeInserted.id = UUID()
+                do{
+                    try context.save()
+                    logHelper.debugLog(message: "inserted steps records successfully")
+                    completionHandler(true)
+                }
+                catch{
+                    print(error)
+                    completionHandler(false)
+                }
             }
-            catch{
-                print(error)
-                completionHandler(false)
-            }
+        default:
+            logHelper.debugLog(message: "no object type provided to insert")
         }
+        
     }
     
     func fetchWithPredicate(context: NSManagedObjectContext, entityName: String, argumentArray: [String: NSObject])  -> [NSManagedObject]?  {
@@ -112,10 +161,22 @@ struct CoreDataManager {
         }
     }
     
+    func fetchWithinDateRange(context: NSManagedObjectContext, entityName: String, startDateTime: Date, endDateTime: Date, predicates: [NSPredicate])  -> [NSManagedObject]?  {
+        var subPredicates: [NSPredicate] = predicates;
+        let dateTimePredicate = NSPredicate(format: "timestamp >= %@ && timestamp < %@", startDateTime as NSDate, endDateTime as NSDate)
+        subPredicates.append(dateTimePredicate);
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
+        fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: subPredicates)
+        if let objects = try? context.fetch(fetchRequest){
+            return objects;
+        }
+        else{
+            return nil;
+        }
+    }
+    
     func saveAccelerometerData(context: NSManagedObjectContext, data: CMAccelerometerData){
-        print("executing save accelerometer data")
-        print("context: \(context) ")
-        print("data: \(data.acceleration)")
+        logHelper.debugLog(message: "executing save accelerometer data")
         let dataToBeSaved = PhoneAccData(context: context);
         dataToBeSaved.id = UUID()
         dataToBeSaved.timestamp = Date()
@@ -124,10 +185,26 @@ struct CoreDataManager {
         dataToBeSaved.zvalue = data.acceleration.z;
         do{
              try context.save()
+            logHelper.debugLog(message: "accelerometer data saved successfully")
         }
         catch{
-            print("unable to save accelerometer data")
+            logHelper.debugLogError(message: "unable to save accelerometer data")
             print(error)
+        }
+    }
+    
+    func saveActivityData(context: NSManagedObjectContext, details: String){
+        logHelper.debugLog(message: "executing save activity data")
+        let dataToBeSaved = Activity(context: context);
+        dataToBeSaved.id = UUID()
+        dataToBeSaved.timestamp = Date()
+        dataToBeSaved.details = details;
+        do{
+             try context.save()
+            logHelper.debugLog(message: "activity data saved successfully")
+        }
+        catch{
+            logHelper.debugLogError(message: "unable to save activity data")
         }
     }
     
@@ -144,23 +221,6 @@ struct CoreDataManager {
         try? context.save()
     }
     
-    
-    
-    
-    
-    
-    
-    func recordActivity(context: NSManagedObjectContext, activity: String){
-        let dummyActivity = Activity(context: context);
-        dummyActivity.details = activity;
-        dummyActivity.timestamp = Date()
-        do{
-            try context.save();
-        }
-        catch{
-            print(error)
-        }
-    }
     func deleteRecord(context: NSManagedObjectContext){
         let fetchRequest: NSFetchRequest<Activity>
         fetchRequest = Activity.fetchRequest()
